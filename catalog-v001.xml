@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="http://rdf.biosemantics.org/ontologies/fdp-o" uri="fdp-ontology.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="http://www.orpha.net/ontology/orphanet.owl" uri="FAIR-usecase/accessor/rdconnect-dummy-data/output/orphadata2.0.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="http://www.w3.org/2002/07/owl" uri="FAIR-usecase/accessor/rdconnect-dummy-data/output/hpo.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.orpha.net/ontology/orphanet.owl" uri="linked-data-demo/dataset/orphadata2.0_subset_2016_07_19.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.orpha.net/ontology/orphanet.owl" uri="linked-data-demo/dataset/orphadata2.0.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.orpha.net/ontology/orphanet.owl" uri="linked-data-demo_old/dataset/orphadata2.0_subset_2016_07_19.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.orpha.net/ontology/orphanet.owl" uri="linked-data-demo_old/dataset/orphadata2.0.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.w3.org/2002/07/owl" uri="linked-data-demo/dataset/hpo_subset_2016_07_19.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.w3.org/2002/07/owl" uri="linked-data-demo/dataset/hpo.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.w3.org/2002/07/owl" uri="linked-data-demo_old/dataset/hpo_subset_2016_07_19.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1473162343001" name="shadowed:http://www.w3.org/2002/07/owl" uri="linked-data-demo_old/dataset/hpo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1476950685209" name="http://rdf.biosemantics.org/ontologies/fdp-o" uri="fdp-ontology.owl"/>
     </group>
 </catalog>
