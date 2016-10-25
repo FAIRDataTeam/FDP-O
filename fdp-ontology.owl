@@ -33,20 +33,6 @@
     
 
 
-    <!-- http://rdf.biosemantics.org/ontologies/fdp-o#RMLMapping -->
-
-    <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#RMLMapping">
-        <rdfs:domain rdf:resource="http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord"/>
-        <rdfs:range>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&owl;topDataProperty"/>
-                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
-            </owl:Restriction>
-        </rdfs:range>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#apiVersion -->
 
     <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#apiVersion">
@@ -82,6 +68,20 @@
     <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#refersTo">
         <rdfs:domain rdf:resource="http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Distribution"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://rdf.biosemantics.org/ontologies/fdp-o#rmlMapping -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#rmlMapping">
+        <rdfs:domain rdf:resource="http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&owl;topDataProperty"/>
+                <owl:someValuesFrom rdf:resource="&xsd;anyURI"/>
+            </owl:Restriction>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
