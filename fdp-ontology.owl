@@ -16,6 +16,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o">
+        <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
         <owl:versionIRI rdf:resource="http://rdf.biosemantics.org/ontologies/fdp-o"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
     </owl:Ontology>
@@ -63,6 +64,12 @@
     
 
 
+    <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataIdentifier -->
+
+    <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataIdentifier"/>
+    
+
+
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#refersTo -->
 
     <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#refersTo">
@@ -83,6 +90,34 @@
             </owl:Restriction>
         </rdfs:range>
     </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataIssued -->
+
+    <owl:DatatypeProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataIssued">
+        <rdfs:label rdf:datatype="&xsd;string">metadata issued</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/issued"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataModified -->
+
+    <owl:DatatypeProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataModified">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/modified"/>
+    </owl:DatatypeProperty>
     
 
 
