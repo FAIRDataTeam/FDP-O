@@ -1,0 +1,33 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix lang: <http://id.loc.gov/vocabulary/iso639-1/> .
+@prefix foaf: <http://xmlns.com/foaf/> .
+@prefix fdp: <http://rdf.biosemantics.org/ontologies/fdp-o#> .
+
+<http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics/goNlSvR5> dct:publisher	<http://www.nlgenome.nl> ;
+	dct:description "The dataset contain 27.8k SV calls (>20bp). Calling was realized using 10 different approaches (see below) and a consensus strategy was used to produce this set. The SOURCE field in the INFO column lists all methods that called each of the events. As most methods do not report genotypes but rather presence/absence of an SV in an individual, we report here either a homozygous reference (0/0) in case of the absence of SV or a genotype with one alternative allele and one unknown allele (./1) in case of the presence of a SV"@en ;
+	dct:hasVersion "1.0" ;
+	fdp:metadataIdentifier <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics/goNlSvR5-metadataID> ;
+	fdp:metadataIssued "2016-10-27"^^xsd:date ;
+	fdp:metadataModified "2016-10-27"^^xsd:date ;
+	dct:issued "2016-10-27"^^xsd:date ;
+	dct:language lang:en ;
+	dct:modified "2016-10-27"^^xsd:date ;
+	dct:publisher <http://orcid.org/0000-0002-1215-167X> , <http://orcid.org/0000-0002-6816-4445> ;
+	dct:title "GoNL human variants"@en ;
+	a dcat:Dataset ;
+	rdfs:label "GoNL human variants"@en ;
+	dcat:distribution <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics/goNlSvR5/html> , <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics/goNlSvR5/textfile-gzip> ;
+	dcat:keyword "GoNL" , "goNlSvR5" , "human" , "variant" ;
+	dcat:landingPage <http://www.genoomvannederland.nl/> ;
+	dcat:theme <http://dbpedia.org/resource/Homo_sapiens> , <http://dbpedia.org/resource/Mutation> .
+
+<http://www.nlgenome.nl> a foaf:Organization;
+	foaf:name "The Genome of the Netherlands"@en.
+
+<http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics/goNlSvR5-metadataID> a <http://edamontology.org/data_0842>;
+	dct:identifier "goNlSvR5-metadataID".

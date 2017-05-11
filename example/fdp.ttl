@@ -1,0 +1,36 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix lang: <http://id.loc.gov/vocabulary/iso639-1/> .
+@prefix fdp: <http://rdf.biosemantics.org/ontologies/fdp-o#> .
+@prefix r3d: <http://www.re3data.org/schema/3-0#> .
+@prefix foaf: <http://xmlns.com/foaf/> .
+
+<http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp> dct:alternative "DTL FDP"@en ;
+	dct:description "The DTL FAIR Data Point hosts the FAIR Data versions of datasets that have been made FAIR during BYODs as well as other relevant life sciences datasets"@en ;
+	dct:title "DTL FAIR Data Point"@en ;
+	dct:hasVersion	"1.0" ;
+	dct:publisher	<http://dtls.nl> ;
+	fdp:metadataIdentifier <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp-metadataID> ;
+	fdp:metadataIssued "2016-10-27"^^xsd:date ;
+	fdp:metadataModified "2016-10-27"^^xsd:date ;
+	r3d:repositoryIdentifier <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp-repositoryID> ;
+	r3d:dataCatalog <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/biobank> , <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/comparativeGenomics> , <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/patient-registry> , <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/textmining> , <http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp/transcriptomics> ;
+	r3d:institution <http://dtls.nl> ;
+	r3d:institutionCountry <http://lexvo.org/id/iso3166/NL> ;
+	r3d:lastUpdate "2016-10-27"^^xsd:date ;
+	r3d:startDate "2016-10-27"^^xsd:date ;
+	a r3d:Repository ;
+	rdfs:label "DTL FAIR Data Point"@en .
+
+<http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp-metadataID> a <http://edamontology.org/data_0842>;
+	dct:identifier "fdp-metadataID".
+
+<http://dev-vm.fair-dtls.surf-hosted.nl:8082/fdp-repositoryID> a <http://edamontology.org/data_0842>;
+	dct:identifier "fdp-repositoryID".
+
+<http://dtls.nl> a foaf:Organization;
+	foaf:name "DTLS"@en.
