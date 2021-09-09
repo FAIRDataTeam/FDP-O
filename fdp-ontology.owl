@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
 <rdf:RDF xmlns="http://purl.org/fdp/fdp-o/"
      xml:base="http://purl.org/fdp/fdp-o/"
-     xmlns:schema="http://schema.org/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
-     xmlns:fdp-o="http://purl.org/fdp/fdp-o#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dcam="http://purl.org/dc/dcam/"
      xmlns:dcat="http://www.w3.org/ns/dcat#"
-     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:fdp-o="http://purl.org/fdp/fdp-o#"
+     xmlns:schema="http://schema.org/">
     <owl:Ontology rdf:about="http://purl.org/fdp/fdp-o">
         <owl:versionIRI rdf:resource="http://purl.org/fdp/fdp-o"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/dcat"/>
+        <dct:creator xml:lang="en">Kees Burger</dct:creator>
+        <dct:creator xml:lang="en">Luiz Olavo Bonino da Silva Santos</dct:creator>
         <dct:creator xml:lang="en">Rajaram Kaliyaperumal</dct:creator>
-        <rdfs:label xml:lang="en">FAIR Data Point Ontology</rdfs:label>
         <dct:description xml:lang="en">This ontology describes the elements of the FAIR Data Point (FDP) and their relations. It serves as a reference model to annotate the metadata content of the FDPs.</dct:description>
         <dct:hasVersion xml:lang="en">0.2</dct:hasVersion>
         <dct:license rdf:resource="https://creativecommons.org/licenses/by/4.0/legalcode"/>
-        <dct:creator xml:lang="en">Kees Burger</dct:creator>
-        <dct:creator xml:lang="en">Luiz Olavo Bonino da Silva Santos</dct:creator>
+        <rdfs:label xml:lang="en">FAIR Data Point Ontology</rdfs:label>
     </owl:Ontology>
     
 
@@ -54,6 +55,12 @@
     <!-- http://purl.org/dc/terms/hasVersion -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/hasVersion"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch"/>
     
 
 
@@ -134,6 +141,14 @@
     
 
 
+    <!-- http://purl.org/fdp/fdp-o#metadataIdentifier -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/fdp/fdp-o#metadataIdentifier">
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#Metadata"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://purl.org/fdp/fdp-o#refersTo -->
 
     <owl:ObjectProperty rdf:about="http://purl.org/fdp/fdp-o#refersTo">
@@ -155,6 +170,17 @@
                 <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
             </owl:Restriction>
         </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#serves_metadata -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/fdp/fdp-o#serves_metadata">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/dcat#servesDataset"/>
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#Metadata_service"/>
+        <rdfs:range rdf:resource="http://purl.org/fdp/fdp-o#Metadata"/>
+        <rdfs:label>serves metadata</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -225,6 +251,69 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#fdpEndDate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#fdpEndDate">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#FAIR_Data_Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#fdpSoftwareVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#fdpSoftwareVersion">
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#FAIR_Data_Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#fdpStartDate -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#fdpStartDate">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#FAIR_Data_Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#fdpUILanguage -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#fdpUILanguage">
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#FAIR_Data_Point"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#metadataIssued -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#metadataIssued">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#Metadata"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#metadataModified -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/fdp/fdp-o#metadataModified">
+        <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
+        <rdfs:domain rdf:resource="http://purl.org/fdp/fdp-o#Metadata"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Classes
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -253,22 +342,11 @@
     
 
 
-    <!-- http://purl.org/fdp/fdp-o#FairDataPoint -->
+    <!-- http://purl.org/fdp/fdp-o#FAIR_Data_Point -->
 
-    <owl:Class rdf:about="http://purl.org/fdp/fdp-o#FairDataPoint">
-        <rdfs:subClassOf rdf:resource="http://www.re3data.org/schema/3-0#Repository"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.w3.org/ns/dcat#catalog"/>
-                <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <dc:creator rdf:resource="http://orcid.org/0000-0002-1164-1351"/>
-        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-25T09:37:43Z</dc:date>
-        <rdfs:comment xml:lang="en">This class represents the FAIR Data Point (FDP), which is an specific type of Repository. The FDP is a metadata repository compliant with the FAIR principles.</rdfs:comment>
-        <rdfs:label xml:lang="en">FAIR Data Point</rdfs:label>
-        <skos:altLabel xml:lang="en">FDP</skos:altLabel>
-        <skos:prefLabel xml:lang="en">FAIR Data Point</skos:prefLabel>
+    <owl:Class rdf:about="http://purl.org/fdp/fdp-o#FAIR_Data_Point">
+        <rdfs:subClassOf rdf:resource="http://purl.org/fdp/fdp-o#Metadata_service"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FAIR Data Point</rdfs:label>
     </owl:Class>
     
 
@@ -280,6 +358,17 @@
         <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
         <dc:creator rdf:resource="http://orcid.org/0000-0002-1164-1351"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-25T10:09:40Z</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/fdp/fdp-o#Metadata_service -->
+
+    <owl:Class rdf:about="http://purl.org/fdp/fdp-o#Metadata_service">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#DataService"/>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In the context of FAIR Data Point these two classes can be treated as exactMatch. Since class Repository has been used in version 1 of FDP specs</rdfs:comment>
+        <rdfs:label>Metadata service</rdfs:label>
+        <skos:closeMatch rdf:resource="http://www.re3data.org/schema/3-0#Repository"/>
     </owl:Class>
     
 
@@ -311,5 +400,5 @@
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 
