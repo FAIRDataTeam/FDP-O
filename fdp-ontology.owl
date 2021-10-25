@@ -15,8 +15,8 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:fdp-o="http://purl.org/fdp/fdp-o#"
      xmlns:schema="http://schema.org/">
-    <owl:Ontology rdf:about="https://w3id.org/fdp-o#">
-        <owl:versionIRI rdf:resource="https://w3id.org/fdp-o#"/>
+    <owl:Ontology rdf:about="https://w3id.org/fdp/fdp-o#">
+        <owl:versionIRI rdf:resource="https://w3id.org/fdp/fdp-o#"/>
         <dct:creator rdf:resource="https://github.com/kburger"/>
         <dct:creator rdf:resource="https://github.com/luizbonino"/>
         <dct:creator rdf:resource="https://github.com/rajaram5"/>
@@ -95,8 +95,8 @@
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataIdentifier -->
 
     <owl:ObjectProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataIdentifier">
-        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp-o#metadataIdentifier"/>
-        <rdfs:subPropertyOf rdf:resource="https://w3id.org/fdp-o#deprecatedObjectProperties"/>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp/fdp-o#metadataIdentifier"/>
+        <rdfs:subPropertyOf rdf:resource="https://w3id.org/fdp/fdp-o#deprecatedObjectProperties"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:ObjectProperty>
     
@@ -105,7 +105,7 @@
     <!-- http://www.re3data.org/schema/3-0#repositoryIdentifier -->
 
     <owl:ObjectProperty rdf:about="http://www.re3data.org/schema/3-0#repositoryIdentifier">
-        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp-o#fdpIdentifier"/>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp/fdp-o#fdpIdentifier"/>
     </owl:ObjectProperty>
     
 
@@ -122,25 +122,25 @@
     
 
 
-    <!-- https://w3id.org/fdp-o#deprecatedObjectProperties -->
+    <!-- https://w3id.org/fdp/fdp-o#deprecatedObjectProperties -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/fdp-o#deprecatedObjectProperties"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#deprecatedObjectProperties"/>
     
 
 
-    <!-- https://w3id.org/fdp-o#fdpIdentifier -->
+    <!-- https://w3id.org/fdp/fdp-o#fdpIdentifier -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/fdp-o#fdpIdentifier">
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#FAIRDataPoint"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpIdentifier">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#metadataCatalog -->
+    <!-- https://w3id.org/fdp/fdp-o#metadataCatalog -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/fdp-o#metadataCatalog">
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataCatalog">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#MetadataService"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#MetadataService"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
         <rdfs:label>Metadata catalog</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/dcat#catalog"/>
@@ -148,20 +148,20 @@
     
 
 
-    <!-- https://w3id.org/fdp-o#metadataIdentifier -->
+    <!-- https://w3id.org/fdp/fdp-o#metadataIdentifier -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/fdp-o#metadataIdentifier">
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#Metadata"/>
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataIdentifier">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#servesMetadata -->
+    <!-- https://w3id.org/fdp/fdp-o#servesMetadata -->
 
-    <owl:ObjectProperty rdf:about="https://w3id.org/fdp-o#servesMetadata">
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#servesMetadata">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/dcat#servesDataset"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#MetadataService"/>
-        <rdfs:range rdf:resource="https://w3id.org/fdp-o#Metadata"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#MetadataService"/>
+        <rdfs:range rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
         <rdfs:label>serves metadata</rdfs:label>
     </owl:ObjectProperty>
     
@@ -187,7 +187,7 @@
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataIssued -->
 
     <owl:DatatypeProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataIssued">
-        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp-o#metadataIssued"/>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp/fdp-o#metadataIssued"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
@@ -196,65 +196,65 @@
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#metadataModified -->
 
     <owl:DatatypeProperty rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#metadataModified">
-        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp-o#metadataModified"/>
+        <owl:equivalentProperty rdf:resource="https://w3id.org/fdp/fdp-o#metadataModified"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#fdpEndDate -->
+    <!-- https://w3id.org/fdp/fdp-o#fdpEndDate -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#fdpEndDate">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpEndDate">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#FAIRDataPoint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#fdpSoftwareVersion -->
+    <!-- https://w3id.org/fdp/fdp-o#fdpSoftwareVersion -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#fdpSoftwareVersion">
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#FAIRDataPoint"/>
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpSoftwareVersion">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#fdpStartDate -->
+    <!-- https://w3id.org/fdp/fdp-o#fdpStartDate -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#fdpStartDate">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpStartDate">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#FAIRDataPoint"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#fdpUILanguage -->
+    <!-- https://w3id.org/fdp/fdp-o#fdpUILanguage -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#fdpUILanguage">
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#FAIRDataPoint"/>
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpUILanguage">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#metadataIssued -->
+    <!-- https://w3id.org/fdp/fdp-o#metadataIssued -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#metadataIssued">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataIssued">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#Metadata"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
 
 
-    <!-- https://w3id.org/fdp-o#metadataModified -->
+    <!-- https://w3id.org/fdp/fdp-o#metadataModified -->
 
-    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp-o#metadataModified">
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataModified">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp-o#Metadata"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
     </owl:DatatypeProperty>
     
@@ -280,7 +280,7 @@
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord -->
 
     <owl:Class rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp-o#DeprecatedClasses"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp/fdp-o#DeprecatedClasses"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
@@ -289,8 +289,8 @@
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#Metadata -->
 
     <owl:Class rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#Metadata">
-        <owl:equivalentClass rdf:resource="https://w3id.org/fdp-o#Metadata"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp-o#DeprecatedClasses"/>
+        <owl:equivalentClass rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp/fdp-o#DeprecatedClasses"/>
         <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
     </owl:Class>
     
@@ -330,25 +330,25 @@
     
 
 
-    <!-- https://w3id.org/fdp-o#DeprecatedClasses -->
+    <!-- https://w3id.org/fdp/fdp-o#DeprecatedClasses -->
 
-    <owl:Class rdf:about="https://w3id.org/fdp-o#DeprecatedClasses"/>
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#DeprecatedClasses"/>
     
 
 
-    <!-- https://w3id.org/fdp-o#FAIRDataPoint -->
+    <!-- https://w3id.org/fdp/fdp-o#FAIRDataPoint -->
 
-    <owl:Class rdf:about="https://w3id.org/fdp-o#FAIRDataPoint">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp-o#MetadataService"/>
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#FAIRDataPoint">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/fdp/fdp-o#MetadataService"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">FAIR Data Point</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.re3data.org/schema/3-0#Repository"/>
     </owl:Class>
     
 
 
-    <!-- https://w3id.org/fdp-o#Metadata -->
+    <!-- https://w3id.org/fdp/fdp-o#Metadata -->
 
-    <owl:Class rdf:about="https://w3id.org/fdp-o#Metadata">
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#Metadata">
         <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
         <dc:creator rdf:resource="http://orcid.org/0000-0002-1164-1351"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-25T10:09:40Z</dc:date>
@@ -356,9 +356,9 @@
     
 
 
-    <!-- https://w3id.org/fdp-o#MetadataService -->
+    <!-- https://w3id.org/fdp/fdp-o#MetadataService -->
 
-    <owl:Class rdf:about="https://w3id.org/fdp-o#MetadataService">
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#MetadataService">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#DataService"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In the context of FAIR Data Point these two classes can be treated as exactMatch. Since class Repository has been used in version 1 of FDP specs</rdfs:comment>
         <rdfs:label>Metadata service</rdfs:label>
