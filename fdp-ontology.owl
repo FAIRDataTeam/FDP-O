@@ -281,12 +281,6 @@
     
 
 
-    <!-- http://purl.org/dc/dcmitype/Dataset -->
-
-    <owl:Class rdf:about="http://purl.org/dc/dcmitype/Dataset"/>
-    
-
-
     <!-- http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord -->
 
     <owl:Class rdf:about="http://rdf.biosemantics.org/ontologies/fdp-o#DataRecord">
@@ -326,6 +320,12 @@
     
 
 
+    <!-- http://www.w3.org/ns/dcat#Dataset -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset"/>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Agent -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent">
@@ -359,7 +359,7 @@
     <!-- https://w3id.org/fdp/fdp-o#Metadata -->
 
     <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#Metadata">
-        <rdfs:subClassOf rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <dc:creator rdf:resource="http://orcid.org/0000-0002-1164-1351"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-25T10:09:40Z</dc:date>
     </owl:Class>
