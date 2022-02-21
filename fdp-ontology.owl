@@ -331,7 +331,9 @@
 
     <!-- http://www.w3.org/ns/dcat#Dataset -->
 
-    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/dcat#Dataset">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+    </owl:Class>
     
 
 
