@@ -136,10 +136,20 @@
     
 
 
+    <!-- https://w3id.org/fdp/fdp-o#hasMetadata -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasMetadata">
+        <owl:inverseOf rdf:resource="https://w3id.org/fdp/fdp-o#isMetadataOf"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
+        <rdfs:range rdf:resource="https://w3id.org/fdp/fdp-o#MetadataRecord"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://w3id.org/fdp/fdp-o#isMetadataOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#isMetadataOf">
-        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#MetadataRecord"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Resource"/>
     </owl:ObjectProperty>
     
@@ -149,7 +159,7 @@
 
     <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataCatalog">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#MetadataService"/>
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
         <rdfs:range rdf:resource="http://www.w3.org/ns/dcat#Catalog"/>
         <rdfs:label>Metadata catalog</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.w3.org/ns/dcat#catalog"/>
@@ -379,6 +389,14 @@
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
         <dc:creator rdf:resource="http://orcid.org/0000-0002-1164-1351"/>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2020-09-25T10:09:40Z</dc:date>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#MetadataRecord -->
+
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#MetadataRecord">
+        <rdfs:label xml:lang="en">Metadata Record</rdfs:label>
     </owl:Class>
     
 
