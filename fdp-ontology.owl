@@ -226,7 +226,7 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpEndDate">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
         <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     </owl:DatatypeProperty>
     
 
@@ -245,7 +245,7 @@
     <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#fdpStartDate">
         <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/date"/>
         <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#FAIRDataPoint"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
     </owl:DatatypeProperty>
     
 
