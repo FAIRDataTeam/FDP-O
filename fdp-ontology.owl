@@ -186,6 +186,98 @@
     
 
 
+    <!-- https://w3id.org/fdp/fdp-o#validatedAgainst -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#validatedAgainst">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">validated against</rdfs:label>
+        <dct:description xml:lang="en">The exact, immutable metadata-profile version a metadata record was validated against at write time. Complements dct:conformsTo (the stable profile) on the record itself; stated on the record's meta-metadata.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#childLink -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#childLink">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#ResourceDefinition"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">child link</rdfs:label>
+        <dct:description xml:lang="en">Links a resource definition to the description of one child resource type it may contain (its relation predicate, target type, and display title).</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#relationUri -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#relationUri">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">relation URI</rdfs:label>
+        <dct:description xml:lang="en">The predicate a parent metadata record uses to point at members of the child resource type described by this child link.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#childTagsUri -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#childTagsUri">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">child tags URI</rdfs:label>
+        <dct:description xml:lang="en">Optional predicate naming the tag vocabulary used to facet a child listing.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasMetaMetadata -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasMetaMetadata">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has meta-metadata</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is the record's meta-metadata document (provenance, versioning, publication state). Used in HTTP Link headers for in-band affordance advertisement.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasSpec -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasSpec">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has spec</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is the SHACL document that validates this record (instance- or type-level).</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasExpandedView -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasExpandedView">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has expanded view</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is a denormalized view of the record embedding its children summaries.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasStateTransition -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasStateTransition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has state transition</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is the endpoint accepting publication-state transitions for the record.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasMemberPage -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasMemberPage">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has member page</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is a paged listing of one child type of a container record.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#hasResourceDefinitions -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/fdp/fdp-o#hasResourceDefinitions">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has resource definitions</rdfs:label>
+        <dct:description xml:lang="en">RFC 8288 extension link relation: the target is the FDP's machine-readable catalog of the resource types it serves. Advertised on the root record.</dct:description>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -285,6 +377,70 @@
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">metadataVersion</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#metadataState -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#metadataState">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">metadata state</rdfs:label>
+        <dct:description xml:lang="en">The publication state of a metadata record: one of DRAFT, PUBLISHED, or ARCHIVED. PUBLISHED records are visible to any authorized reader; other states only to the record's curators. Stated on the record's meta-metadata.</dct:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#allowedStateTransition -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#allowedStateTransition">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#Metadata"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">allowed state transition</rdfs:label>
+        <dct:description xml:lang="en">A publication state the record may transition to next, per the serving FDP's state machine. An affordance computed at serve time on the meta-metadata representation, not a stored fact.</dct:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#urlPrefix -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#urlPrefix">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#ResourceDefinition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">URL prefix</rdfs:label>
+        <dct:description xml:lang="en">The route segment a resource type is exposed under by the serving FDP; the empty string denotes the root.</dct:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#name -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#name">
+        <rdfs:domain rdf:resource="https://w3id.org/fdp/fdp-o#ResourceDefinition"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name</rdfs:label>
+        <dct:description xml:lang="en">The display name of the resource type described by a resource definition.</dct:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#childTarget -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#childTarget">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">child target</rdfs:label>
+        <dct:description xml:lang="en">The urlPrefix of the child's resource definition, identifying the target type of a child link.</dct:description>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#childTitle -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/fdp/fdp-o#childTitle">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">child title</rdfs:label>
+        <dct:description xml:lang="en">Human-readable label for a child listing.</dct:description>
     </owl:DatatypeProperty>
     
 
@@ -408,6 +564,50 @@
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In the context of FAIR Data Point these two classes can be treated as exactMatch. Since class Repository has been used in version 1 of FDP specs</rdfs:comment>
         <rdfs:label>Metadata service</rdfs:label>
         <skos:closeMatch rdf:resource="http://www.re3data.org/schema/3-0#Repository"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#ResourceDefinition -->
+
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#ResourceDefinition">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Resource Definition</rdfs:label>
+        <dct:description xml:lang="en">A resource type a FAIR Data Point serves: its route segment, display name, validating SHACL shape, and the child types its instances may contain.</dct:description>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#ManagedLicense -->
+
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#ManagedLicense">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Managed License</rdfs:label>
+        <dct:description xml:lang="en">Marker class for license documents managed by (stored in) a FAIR Data Point, used to validate their descriptive contract uniformly.</dct:description>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#CreateOperation -->
+
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#CreateOperation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Create Operation</rdfs:label>
+        <dct:description xml:lang="en">The provenance activity that created a metadata record.</dct:description>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/fdp/fdp-o#ModifyOperation -->
+
+    <owl:Class rdf:about="https://w3id.org/fdp/fdp-o#ModifyOperation">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Modify Operation</rdfs:label>
+        <dct:description xml:lang="en">The provenance activity that last modified a metadata record.</dct:description>
     </owl:Class>
     
 
