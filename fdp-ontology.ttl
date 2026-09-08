@@ -1,0 +1,284 @@
+@prefix fdp-o:   <https://w3id.org/fdp/fdp-o#> .
+@prefix old:     <http://rdf.biosemantics.org/ontologies/fdp-o#> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix re3:     <http://www.re3data.org/schema/3-0#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# Ontology header
+#################################################################
+
+fdp-o: a owl:Ontology ;
+  rdfs:label "FAIR Data Point Ontology"@en ;
+  dcterms:title "FAIR Data Point Ontology"@en ;
+  dcterms:description "This ontology defines the classes and properties that are specific to the FAIR Data Point (FDP) and their relations to the Data Catalog Vocabulary (DCAT) version 3. It is the vocabulary used by the FAIR Data Point specification to describe a FAIR Data Point and the records of the metadata it serves."@en ;
+  owl:versionIRI <https://w3id.org/fdp/fdp-o/2.0> ;
+  owl:versionInfo "2.0" ;
+  dcterms:hasVersion "2.0" ;
+  dcterms:modified "2026-09-08"^^xsd:date ;
+  dcterms:creator <https://github.com/kburger> , <https://github.com/luizbonino> , <https://github.com/rajaram5> ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/legalcode> ;
+  rdfs:seeAlso <https://specs.fairdatapoint.org/> ;
+  rdfs:comment "Version 2.0 aligns the ontology with version 2.0 of the FAIR Data Point specification. The namespace http://purl.org/fdp/fdp-o# used by earlier releases is deprecated in favour of https://w3id.org/fdp/fdp-o#. Terms deprecated in this version carry owl:deprecated and point to their replacement with dcterms:isReplacedBy."@en .
+
+<https://github.com/kburger> a owl:NamedIndividual , foaf:Person ;
+  rdfs:label "Kees Burger" .
+<https://github.com/luizbonino> a owl:NamedIndividual , foaf:Person ;
+  rdfs:label "Luiz Olavo Bonino da Silva Santos" ;
+  owl:sameAs <https://orcid.org/0000-0002-1164-1351> .
+<https://github.com/rajaram5> a owl:NamedIndividual , foaf:Person ;
+  rdfs:label "Rajaram Kaliyaperumal" .
+
+#################################################################
+# Annotation properties used
+#################################################################
+
+dc:creator a owl:AnnotationProperty .
+dc:date a owl:AnnotationProperty .
+dcterms:creator a owl:AnnotationProperty .
+dcterms:created a owl:AnnotationProperty .
+dcterms:description a owl:AnnotationProperty .
+dcterms:hasVersion a owl:AnnotationProperty .
+dcterms:isReplacedBy a owl:AnnotationProperty .
+dcterms:license a owl:AnnotationProperty .
+dcterms:modified a owl:AnnotationProperty .
+dcterms:replaces a owl:AnnotationProperty .
+dcterms:title a owl:AnnotationProperty .
+skos:closeMatch a owl:AnnotationProperty .
+skos:definition a owl:AnnotationProperty .
+
+#################################################################
+# External classes and properties referred to
+#################################################################
+
+dcat:Catalog a owl:Class .
+dcat:CatalogRecord a owl:Class .
+dcat:DataService a owl:Class .
+dcat:Dataset a owl:Class ;
+  rdfs:subClassOf dcat:Resource .
+dcat:Resource a owl:Class .
+dcterms:LinguisticSystem a owl:Class .
+foaf:Person a owl:Class .
+prov:Agent a owl:Class ;
+  rdfs:label "Agent" .
+prov:Entity a owl:Class .
+re3:Repository a owl:Class ;
+  rdfs:subClassOf prov:Entity .
+
+dcat:catalog a owl:ObjectProperty .
+dcat:servesDataset a owl:ObjectProperty .
+dcterms:conformsTo a owl:ObjectProperty .
+dcterms:relation a owl:ObjectProperty .
+foaf:isPrimaryTopicOf a owl:ObjectProperty ;
+  owl:inverseOf foaf:primaryTopic .
+foaf:primaryTopic a owl:ObjectProperty .
+re3:repositoryIdentifier a owl:ObjectProperty ;
+  owl:equivalentProperty fdp-o:fdpIdentifier .
+
+dcterms:date a owl:DatatypeProperty .
+dcterms:issued a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dcterms:date .
+dcterms:modified a owl:DatatypeProperty ;
+  rdfs:subPropertyOf dcterms:date .
+
+#################################################################
+# Classes
+#################################################################
+
+fdp-o:MetadataService a owl:Class ;
+  rdfs:label "Metadata service"@en ;
+  skos:definition "A data service that serves metadata records. Where a dcat:DataService serves datasets (dcat:servesDataset), a metadata service serves the metadata records of the entities it describes (fdp-o:servesMetadata)."@en ;
+  rdfs:subClassOf dcat:DataService ;
+  skos:closeMatch re3:Repository ;
+  rdfs:comment "In the context of the FAIR Data Point, fdp-o:MetadataService and re3:Repository can be treated as an exact match; the class Repository was used in version 1.0 of the FDP specification."@en .
+
+fdp-o:FAIRDataPoint a owl:Class ;
+  rdfs:label "FAIR Data Point"@en ;
+  skos:definition "A metadata service that conforms to the FAIR Data Point specification: it serves metadata records with content negotiation, refers each record to its profile, and describes the structure of its metadata content with Linked Data Platform containers so that clients can navigate it."@en ;
+  rdfs:subClassOf fdp-o:MetadataService ;
+  skos:closeMatch re3:Repository .
+
+fdp-o:MetadataRecord a owl:Class ;
+  rdfs:label "Metadata record"@en ;
+  skos:definition "The record describing the registration of an entity in a FAIR Data Point: when the metadata record of the entity was created and last modified in the FDP, by whom, and which profile it conforms to. It is linked to the described entity with fdp-o:isMetadataOf. When the described entity is a dcat:Resource, the metadata record is also a dcat:CatalogRecord."@en ;
+  rdfs:seeAlso dcat:CatalogRecord .
+
+fdp-o:Metadata a owl:Class ;
+  rdfs:label "Metadata (deprecated)"@en ;
+  rdfs:subClassOf dcat:Dataset ;
+  owl:deprecated true ;
+  dcterms:isReplacedBy fdp-o:MetadataRecord ;
+  rdfs:comment "Deprecated since version 2.0. Use fdp-o:MetadataRecord, which is not a subclass of dcat:Dataset."@en ;
+  dcterms:creator <https://github.com/luizbonino> ;
+  dcterms:created "2020-09-25T10:09:40+00:00"^^xsd:dateTime .
+
+#################################################################
+# Object properties
+#################################################################
+
+fdp-o:metadataCatalog a owl:ObjectProperty ;
+  rdfs:label "metadata catalog"@en ;
+  skos:definition "Relates a metadata service to a catalog whose metadata record it serves."@en ;
+  rdfs:domain fdp-o:MetadataService ;
+  rdfs:range dcat:Catalog ;
+  rdfs:subPropertyOf dcterms:relation ;
+  skos:closeMatch dcat:catalog .
+
+fdp-o:servesMetadata a owl:ObjectProperty ;
+  rdfs:label "serves metadata"@en ;
+  skos:definition "Relates a metadata service to a metadata record it serves. This is the relation that distinguishes a metadata service from other data services, in the same way as dcat:servesDataset relates a data service to the datasets it serves."@en ;
+  rdfs:domain fdp-o:MetadataService ;
+  rdfs:range fdp-o:MetadataRecord ;
+  rdfs:seeAlso dcat:servesDataset .
+
+fdp-o:hasMetadata a owl:ObjectProperty ;
+  rdfs:label "has metadata"@en ;
+  skos:definition "Relates an entity described in a FAIR Data Point to its metadata record. The domain is deliberately not restricted to dcat:Resource: every entity of the content model of an FDP, including distributions and entities of custom classes, has a metadata record."@en ;
+  rdfs:range fdp-o:MetadataRecord ;
+  rdfs:subPropertyOf foaf:isPrimaryTopicOf ;
+  owl:inverseOf fdp-o:isMetadataOf .
+
+fdp-o:isMetadataOf a owl:ObjectProperty ;
+  rdfs:label "is metadata of"@en ;
+  skos:definition "Relates a metadata record to the entity it describes. Inverse of fdp-o:hasMetadata."@en ;
+  rdfs:domain fdp-o:MetadataRecord ;
+  rdfs:subPropertyOf foaf:primaryTopic .
+
+fdp-o:conformsToFdpSpec a owl:ObjectProperty ;
+  rdfs:label "conforms to FDP specification"@en ;
+  skos:definition "Relates a FAIR Data Point to a conformance class of a version of the FAIR Data Point specification that it claims to conform to. A FAIR Data Point states one value per claimed conformance class, and always the FDP Core class."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:subPropertyOf dcterms:conformsTo .
+
+fdp-o:uiLanguage a owl:ObjectProperty ;
+  rdfs:label "user interface language"@en ;
+  skos:definition "A language of the user interface of the FAIR Data Point. Distinct from dcterms:language, which gives the language of the metadata record."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range dcterms:LinguisticSystem ;
+  dcterms:replaces fdp-o:fdpUILanguage .
+
+fdp-o:fdpIdentifier a owl:ObjectProperty ;
+  rdfs:label "FDP identifier"@en ;
+  skos:definition "An identifier of the FAIR Data Point in an external registry."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint .
+
+fdp-o:metadataIdentifier a owl:ObjectProperty ;
+  rdfs:label "metadata identifier (deprecated)"@en ;
+  rdfs:domain fdp-o:Metadata ;
+  owl:deprecated true ;
+  rdfs:comment "Deprecated since version 2.0. The metadata record is identified by its own IRI."@en .
+
+fdp-o:fdpUILanguage a owl:DatatypeProperty ;
+  rdfs:label "FDP UI language (deprecated)"@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:anyURI ;
+  owl:deprecated true ;
+  dcterms:isReplacedBy fdp-o:uiLanguage ;
+  rdfs:comment "Deprecated since version 2.0. Use the object property fdp-o:uiLanguage with an IRI value."@en .
+
+#################################################################
+# Datatype properties
+#################################################################
+
+fdp-o:startDate a owl:DatatypeProperty ;
+  rdfs:label "start date"@en ;
+  skos:definition "Date from which the FAIR Data Point is or was in operation."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  dcterms:replaces fdp-o:fdpStartDate .
+
+fdp-o:endDate a owl:DatatypeProperty ;
+  rdfs:label "end date"@en ;
+  skos:definition "Date until which the FAIR Data Point is or was in operation."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  dcterms:replaces fdp-o:fdpEndDate .
+
+fdp-o:hasSoftwareVersion a owl:DatatypeProperty ;
+  rdfs:label "has software version"@en ;
+  skos:definition "Version of the software that implements the FAIR Data Point."@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:string ;
+  dcterms:replaces fdp-o:fdpSoftwareVersion .
+
+fdp-o:metadataVersion a owl:DatatypeProperty ;
+  rdfs:label "metadata version"@en ;
+  skos:definition "Version of a metadata record."@en ;
+  rdfs:range xsd:string .
+
+fdp-o:fdpStartDate a owl:DatatypeProperty ;
+  rdfs:label "FDP start date (deprecated)"@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:startDate ;
+  dcterms:isReplacedBy fdp-o:startDate .
+
+fdp-o:fdpEndDate a owl:DatatypeProperty ;
+  rdfs:label "FDP end date (deprecated)"@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:endDate ;
+  dcterms:isReplacedBy fdp-o:endDate .
+
+fdp-o:fdpSoftwareVersion a owl:DatatypeProperty ;
+  rdfs:label "FDP software version (deprecated)"@en ;
+  rdfs:domain fdp-o:FAIRDataPoint ;
+  rdfs:range xsd:string ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:hasSoftwareVersion ;
+  dcterms:isReplacedBy fdp-o:hasSoftwareVersion .
+
+fdp-o:metadataIssued a owl:DatatypeProperty ;
+  rdfs:label "metadata issued (deprecated)"@en ;
+  rdfs:domain fdp-o:Metadata ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf dcterms:issued ;
+  owl:deprecated true ;
+  dcterms:isReplacedBy dcterms:issued ;
+  rdfs:comment "Deprecated since version 2.0. State dcterms:issued on the fdp-o:MetadataRecord instead."@en .
+
+fdp-o:metadataModified a owl:DatatypeProperty ;
+  rdfs:label "metadata modified (deprecated)"@en ;
+  rdfs:domain fdp-o:Metadata ;
+  rdfs:range xsd:dateTime ;
+  rdfs:subPropertyOf dcterms:modified ;
+  owl:deprecated true ;
+  dcterms:isReplacedBy dcterms:modified ;
+  rdfs:comment "Deprecated since version 2.0. State dcterms:modified on the fdp-o:MetadataRecord instead."@en .
+
+#################################################################
+# Terms of the pre-1.0 namespace, kept for backward compatibility
+#################################################################
+
+old:DataRecord a owl:Class ;
+  owl:deprecated true .
+
+old:Metadata a owl:Class ;
+  owl:deprecated true ;
+  owl:equivalentClass fdp-o:Metadata .
+
+old:metadataIdentifier a owl:ObjectProperty ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:metadataIdentifier .
+
+old:metadataIssued a owl:DatatypeProperty ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:metadataIssued .
+
+old:metadataModified a owl:DatatypeProperty ;
+  owl:deprecated true ;
+  owl:equivalentProperty fdp-o:metadataModified .
